@@ -177,7 +177,7 @@ def bloodflow_figure(value, bloodflow_checkmarks):
 
     #Simple Moving Average (SMA)
     if bloodflow_checkmarks == ["SMA"]:
-            bf["Blood Flow (ml/s) - SMA"] = ut.calculate_SMA(bf["Blood Flow (ml/s)"],3) 
+            bf["Blood Flow (ml/s) - SMA"] = ut.calculate_SMA(bf["Blood Flow (ml/s)"],4) 
             fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - SMA"],mode='lines', marker_color = 'darkviolet', name= 'SMA'))
 
    
@@ -201,12 +201,9 @@ def bloodflow_figure(value, bloodflow_checkmarks):
     y_unten = y*0.85 #85% vom Mittelwert
     fig3.add_trace(go.Scatter(x = x, y = [y_unten,y_unten],mode = 'lines', line_color = 'red', name = 'Untere Grenze'))
 
-
-
-
-
     #3.3
-    #3.4
+
+    #3.4 
 
 
 
