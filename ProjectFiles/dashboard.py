@@ -137,7 +137,7 @@ def update_figure(value, algorithm_checkmarks):
     grp = ts.agg(['max', 'min', 'idxmin', 'idxmax'])
     
     #print grp
-    #print
+    
 
     if 'max' in algorithm_checkmarks:
 
@@ -169,8 +169,49 @@ def bloodflow_figure(value, bloodflow_checkmarks):
     bf = list_of_subjects[int(value)-1].subject_data
     fig3 = px.line(bf, x="Time (s)", y="Blood Flow (ml/s)")
 
+    #Cumulative Moving Average (CMA)
+    if bloodflow_checkmarks == ["CMA"]:
+            bf["Blood Flow (ml/s) - CMA"] = ut.calculate_CMA(bf["Blood Flow (ml/s)"],4) 
+            fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - CMA"],mode='lines', marker_color = 'coral', name= 'CMA'))
+
+
+    #Simple Moving Average (SMA)
+    if bloodflow_checkmarks == ["SMA"]:
+            bf["Blood Flow (ml/s) - SMA"] = ut.calculate_SMA(bf["Blood Flow (ml/s)"],3) 
+            fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - SMA"],mode='lines', marker_color = 'darkviolet', name= 'SMA'))
+
+   
+
+    #Blood Flow Alarm: Aufgabe 3
+
+    #Mittelwert: 3.1
+
+    avg = bf.mean() #Mittelwert berechnen
+    x = [0, 480] #Grenzen für x-Werte
+    y = [avg.loc['Blood Flow (ml/s)']]
+    fig3.add_trace(go.Scatter(x = x , y = [y, y], mode = 'lines', name = 'Mittelwert'), line_color = 'seagreen')
+
+    #Intervalle um Mittelwert: 3.2
+
+    #Obere Grenze
+    y_oben = y*1.15 #115% vom Mittelwert
+    fig3.add_trace(go.Scatter(x = x, y = [y_oben,y_oben],mode = 'lines', line_color = 'red', name = 'Obere Grenze'))
+
+    #Untere Grenze
+    y_unten = y*0.85 #85% vom Mittelwert
+    fig3.add_trace(go.Scatter(x = x, y = [y_unten,y_unten],mode = 'lines', line_color = 'red', name = 'Untere Grenze'))
+
+
+
+
+
+    #3.3
+    #3.4
+
+
 
     return fig3
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
