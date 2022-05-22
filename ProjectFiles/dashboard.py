@@ -1,5 +1,6 @@
 from cmath import nan
 from tempfile import SpooledTemporaryFile
+from tokenize import group
 import dash
 from dash import Dash, html, dcc, Output, Input, dash_table
 import plotly.express as px
@@ -10,8 +11,12 @@ import numpy as np
 import os
 import re
 
+#https://www.youtube.com/watch?v=hSPmj7mK6ng&ab_channel=CharmingData für das Verständnis von Dashboards
+
 app = Dash(__name__)
 
+
+#import and clean data (importing csv into pandas)
 
 list_of_subjects = []
 subj_numbers = []
@@ -36,7 +41,7 @@ for i in range(number_of_subjects):
     subj_numbers.append(list_of_subjects[i].subject_id)
 
 data_names = ["SpO2 (%)", "Blood Flow (ml/s)","Temp (C)"]
-algorithm_names = ['min','max']
+algorithm_names = ['min','max'] #naming the buttons
 blood_flow_functions = ['CMA','SMA','Show Limits']
 
 
@@ -50,8 +55,12 @@ fig1 = px.line(df, x="Time (s)", y = "Blood Flow (ml/s)")
 fig2 = px.line(df, x="Time (s)", y = "Temp (C)")
 fig3 = px.line(df, x="Time (s)", y = "Blood Flow (ml/s)")
 
+
+#layout
+#https://dash.plotly.com/dash-core-components
+
 app.layout = html.Div(children=[
-    html.H1(children='Cardiopulmonary Bypass Dashboard'),
+    html.H1(children='Cardiopulmonary Bypass Dashboard', style={'text-align' : 'center'}),
 
     html.Div(children='''
         Hier könnten Informationen zum Patienten stehen....
@@ -64,7 +73,12 @@ app.layout = html.Div(children=[
     ),
 
     html.Div([
-        dcc.Dropdown(options = subj_numbers, placeholder='Select a subject', value='1', id='subject-dropdown'),
+        dcc.Dropdown(options = subj_numbers,
+                     placeholder='Select a subject',
+                     value='1',
+                     id='subject-dropdown',
+                     style={'widht' : "40%"}),
+
     html.Div(id='dd-output-container')
     ],
         style={"width": "15%"}
@@ -96,6 +110,7 @@ app.layout = html.Div(children=[
 ])
 ### Callback Functions ###
 ## Graph Update Callback
+
 @app.callback(
     # In- or Output('which html element','which element property')
     Output('dash-graph0', 'figure'),
@@ -105,6 +120,7 @@ app.layout = html.Div(children=[
     Input('checklist-algo','value')
 )
 def update_figure(value, algorithm_checkmarks):
+
     print("Current Subject: ",value)
     print("current checked checkmarks are: ", algorithm_checkmarks)
     ts = list_of_subjects[int(value)-1].subject_data
@@ -117,10 +133,29 @@ def update_figure(value, algorithm_checkmarks):
     
     ### Aufgabe 2: Min / Max ###
 
+    #function to calculate minimum and maximum
+    grp = ts.agg(['max', 'min', 'idxmin', 'idxmax'])
+    
+    #print grp
+    #print
+
+    if 'max' in algorithm_checkmarks:
+
+            fig0.add_trace(go.Scatter(x= [grp.loc['idxmax', data_names[0]]], y= [grp.loc['max', data_names[0]]], mode='markers', name='maximum' , marker_color= 'aqua'))
+            fig1.add_trace(go.Scatter(x= [grp.loc['idxmax', data_names[1]]], y= [grp.loc['max', data_names[1]]], mode='markers', name='maximum', marker_color= 'aqua'))
+            fig2.add_trace(go.Scatter(x= [grp.loc['idxmax', data_names[2]]], y= [grp.loc['max', data_names[2]]], mode='markers', name='maximum', marker_color= 'aqua'))
+
+    if 'min' in algorithm_checkmarks:
+
+            fig0.add_trace(go.Scatter(x=[grp.loc['idxmin', data_names[0]]], y=[grp.loc['min', data_names[0]]], mode ='markers', name='mininum', marker_color='gold'))
+            fig1.add_trace(go.Scatter(x=[grp.loc['idxmin', data_names[1]]], y=[grp.loc['min', data_names[1]]], mode ='markers', name='mininum', marker_color='gold'))
+            fig3.add_trace(go.Scatter(x=[grp.loc['idxmin', data_names[2]]], y=[grp.loc['min', data_names[2]]], mode ='markers', name='Mininum', marker_color='gold'))
+
     return fig0, fig1, fig2 
 
 
 ## Blodflow Simple Moving Average Update
+
 @app.callback(
     # In- or Output('which html element','which element property')
     Output('dash-graph3', 'figure'),
