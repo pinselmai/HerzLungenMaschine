@@ -140,6 +140,19 @@ def update_figure(value, algorithm_checkmarks):
 
 #https://plotly.com/python/axes/
 
+// Capture the current theme from local storage and adjust the page to use the current theme.
+const htmlEl = document.getElementsByTagName('html')[0];
+const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+if (currentTheme) {
+    htmlEl.dataset.theme = currentTheme;
+}
+// When the user changes the theme, we need to save the new value on local storage
+const toggleTheme = (theme) => {
+    htmlEl.dataset.theme = theme;
+    localStorage.setItem('theme', theme);
+}
+
+‚
     #fig0
     fig0.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'],font_color = colors['text'], modebar_color ='red')
     fig0.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black', griddash='dash', minor_griddash="dot")
