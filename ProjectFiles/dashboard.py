@@ -90,10 +90,10 @@ app.layout = html.Div(style={'backgroundColor': colors ['background']}, children
     inline=False
     ),
 
-    html.Div(
+    html.Div([
     html.H4(children='HLM'),
     generate_table(df)
-    ),
+    ]),
 
 
     html.Div([
