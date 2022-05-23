@@ -191,7 +191,6 @@ def update_figure(value, algorithm_checkmarks):
 def bloodflow_figure(value, bloodflow_checkmarks):
     
     ## Calculate Moving Average: Aufgabe 2
-
     print(bloodflow_checkmarks)
     bf = list_of_subjects[int(value)-1].subject_data
 
@@ -238,6 +237,7 @@ def bloodflow_figure(value, bloodflow_checkmarks):
    
 
     #3.3
+    
 
     #3.4 
 
