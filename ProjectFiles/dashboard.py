@@ -56,6 +56,17 @@ fig1 = px.line(df, x="Time (s)", y = "Blood Flow (ml/s)")
 fig2 = px.line(df, x="Time (s)", y = "Temp (C)")
 fig3 = px.line(df, x="Time (s)", y = "Blood Flow (ml/s)")
 
+def generate_table(dataframe, max_rows=10):
+    return html.Table([
+        html.Thead(
+            html.Tr([html.Th(col) for col in dataframe.columns])
+        ),
+        html.Tbody([
+            html.Tr([
+                html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
+            ]) for i in range(min(len(dataframe), max_rows))
+        ])
+    ])
 
 #layout
 
@@ -65,6 +76,7 @@ colors = { 'background': 'gainsboro' , 'text': 'black' }
 
 #https://dash.plotly.com/dash-core-components
 
+ # html.Div(children= [html.H4(children=''), generate_table(df)])
 
 app.layout = html.Div(style={'backgroundColor': colors ['background']}, children=[
     html.H1(children='Cardiopulmonary Bypass Dashboard', style={'text-align' : 'center' }),
@@ -116,6 +128,10 @@ app.layout = html.Div(style={'backgroundColor': colors ['background']}, children
         figure=fig3
     )
     
+])
+app.layout = html.Div([
+    html.H4(children='US Agriculture Exports (2011)'),
+    generate_table(df)
 ])
 
 
