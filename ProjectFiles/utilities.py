@@ -18,7 +18,16 @@ class Subject():
         self.subject_data = self.subject_data.interpolate(method='quadratic', axis=0) 
         #https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.interpolate.html
         #Daten werden interpoliert und mit "quadratic" werden Datenpunkte erstellt um die Lücken in __f auszugleichen
-        __splited_id = re.findall(r'\d+',file_name)      
+        # VORSICHT BEI WINDOWS MUSS DIE 1 in Eckigen Klammern weg
+        if platform == "darwin":
+            print("Mac")
+                # Windows...<
+            __splited_id = re.findall(r'\d+',file_name)[1]
+        else:
+    # Windows...<
+            __splited_id = re.findall(r'\d+',file_name)[1]
+
+        #__splited_id = re.findall(r'\d+',file_name)      
         self.subject_id = ''.join(__splited_id)
         self.names = self.subject_data.columns.values.tolist()
         self.time = self.subject_data["Time (s)"]        
