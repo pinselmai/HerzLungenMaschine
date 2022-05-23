@@ -214,7 +214,6 @@ def bloodflow_figure(value, bloodflow_checkmarks):
             fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - SMA"],mode='lines', marker_color = 'fuchsia', name= 'SMA'))
 
 
-        if bloodflow_checkmarks == ["Show Limits "]:
 
     #Blood Flow Alarm: Aufgabe 3
     #Mittelwert: 3.1
@@ -225,7 +224,7 @@ def bloodflow_figure(value, bloodflow_checkmarks):
             fig3.add_trace(go.Scatter(x = x , y = [y, y], mode = 'lines', name = 'Mittelwert', line_color = 'lime'))
 
     #Intervalle um Mittelwert: 3.2
-
+        if bloodflow_checkmarks == ["Show Limits"]:
     #Obere Grenze
             y_oben = avg.loc['Blood Flow (ml/s)']*1.15 #115% vom Mittelwert
             fig3.add_trace(go.Scatter(x = x, y = [y_oben,y_oben],mode = 'lines', line_color = 'red', name = 'Obere Grenze'))
