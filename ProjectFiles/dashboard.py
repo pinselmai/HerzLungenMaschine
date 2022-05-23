@@ -61,7 +61,7 @@ fig3 = px.line(df, x="Time (s)", y = "Blood Flow (ml/s)")
 
 #https://dash.plotly.com/layout
 
-colors = { 'background': 'lightcyan' , 'text': 'black' }
+colors = { 'background': 'gainsboro' , 'text': 'black' }
 
 #https://dash.plotly.com/dash-core-components
 
