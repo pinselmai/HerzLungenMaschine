@@ -16,6 +16,8 @@ import re
 
 app = Dash(__name__)
 
+colors = { 'background': 'lightgray' , 'text': 'white' }
+
 
 #import and clean data (importing csv into pandas)
 
