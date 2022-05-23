@@ -139,13 +139,15 @@ def update_figure(value, algorithm_checkmarks):
     #print grp
     
 
-    if 'max' in algorithm_checkmarks:
+    if algorithm_checkmarks is not None:
 
-            fig0.add_trace(go.Scatter(x= [grp.loc['idxmax', data_names[0]]], y= [grp.loc['max', data_names[0]]], mode='markers', name='maximum' , marker_color= 'aqua'))
+         if 'max' in algorithm_checkmarks:
+
+            fig0.add_trace(go.Scatter(x= [grp.loc['idxmax', data_names[0]]], y= [grp.loc['max', data_names[0]]], mode='markers', name='maximum', marker_color= 'aqua'))
             fig1.add_trace(go.Scatter(x= [grp.loc['idxmax', data_names[1]]], y= [grp.loc['max', data_names[1]]], mode='markers', name='maximum', marker_color= 'aqua'))
             fig2.add_trace(go.Scatter(x= [grp.loc['idxmax', data_names[2]]], y= [grp.loc['max', data_names[2]]], mode='markers', name='maximum', marker_color= 'aqua'))
 
-    if 'min' in algorithm_checkmarks:
+        if 'min' in algorithm_checkmarks:
 
             fig0.add_trace(go.Scatter(x=[grp.loc['idxmin', data_names[0]]], y=[grp.loc['min', data_names[0]]], mode ='markers', name='mininum', marker_color='gold'))
             fig1.add_trace(go.Scatter(x=[grp.loc['idxmin', data_names[1]]], y=[grp.loc['min', data_names[1]]], mode ='markers', name='mininum', marker_color='gold'))
