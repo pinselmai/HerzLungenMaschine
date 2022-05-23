@@ -196,11 +196,11 @@ def bloodflow_figure(value, bloodflow_checkmarks):
     #Intervalle um Mittelwert: 3.2
 
     #Obere Grenze
-    y_oben = y*1.15 #115% vom Mittelwert
+    y_oben = [avg.loc['Blood Flow (ml/s)']]*1.15 #115% vom Mittelwert
     fig3.add_trace(go.Scatter(x = x, y = [y_oben,y_oben],mode = 'lines', line_color = 'red', name = 'Obere Grenze'))
 
     #Untere Grenze
-    y_unten = y*0.85 #85% vom Mittelwert
+    y_unten = [avg.loc['Blood Flow (ml/s)']]*0.85 #85% vom Mittelwert
     fig3.add_trace(go.Scatter(x = x, y = [y_unten,y_unten],mode = 'lines', line_color = 'red', name = 'Untere Grenze'))
 
     #3.3
