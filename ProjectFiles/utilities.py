@@ -25,7 +25,7 @@ class Subject():
             __splited_id = re.findall(r'\d+',file_name)[1]
         else:
     # Windows...<
-            __splited_id = re.findall(r'\d+',file_name)[1]     
+            __splited_id = re.findall(r'\d+',file_name)     
         self.subject_id = ''.join(__splited_id)
         self.names = self.subject_data.columns.values.tolist()
         self.time = self.subject_data["Time (s)"]        
