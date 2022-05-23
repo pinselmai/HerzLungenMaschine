@@ -5,7 +5,8 @@ import pandas as pd
 from datetime import datetime
 import numpy as np
 import re
-import platform
+from sys import platform
+
 # Classes 
 
 class Subject():
@@ -50,5 +51,7 @@ def calculate_SMA(df,n):
     return df.rolling(n).mean()
     pass
 
-#Augabe 4.2
+#Aufgabe 4.1
+#Bei Signalen mit Rauschen und Ausreißern gut, da Kurve gelättet wird. Bei Echtzeit Signalen ungeeignet.
+#Aufgabe 4.2
 #Je höher man das n wählt, desto stärker werden die Extrema/Ausreißer geglättet
