@@ -32,6 +32,8 @@ class Subject():
 
 ### Aufgabe 2: Datenverarbeitung ###
 
+#https://www.geeksforgeeks.org/how-to-calculate-moving-average-in-a-pandas-dataframe/
+
 def calculate_CMA(df,n):
     return df.expanding(n).mean()
     pass
@@ -40,3 +42,4 @@ def calculate_CMA(df,n):
 def calculate_SMA(df,n):
     return df.rolling(n).mean()
     pass
+
