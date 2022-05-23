@@ -137,6 +137,8 @@ def update_figure(value, algorithm_checkmarks):
     # Blood Temperature
     fig2 = px.line(ts, x="Time (s)", y = data_names[2])
 
+#https://plotly.com/python/axes/
+
     #fig0
     fig0.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'],font_color = colors['text'])
     fig0.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black', griddash='dash', minor_griddash="dot")
@@ -191,7 +193,7 @@ def bloodflow_figure(value, bloodflow_checkmarks):
     print(bloodflow_checkmarks)
     bf = list_of_subjects[int(value)-1].subject_data
 
-    #fig3
+    #fig3 
     fig3 = px.line(bf, x="Time (s)", y="Blood Flow (ml/s)")
     fig3.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'], font_color = colors['text'])
     fig3.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black', griddash='dash', minor_griddash="dot")
