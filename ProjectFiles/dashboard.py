@@ -202,13 +202,13 @@ def bloodflow_figure(value, bloodflow_checkmarks):
     #Cumulative Moving Average (CMA)
     if bloodflow_checkmarks == ["CMA"]:
             bf["Blood Flow (ml/s) - CMA"] = ut.calculate_CMA(bf["Blood Flow (ml/s)"],4) 
-            fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - CMA"],mode='lines', marker_color = 'coral', name= 'CMA'))
+            fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - CMA"],mode='lines', marker_color = 'yellow', name= 'CMA'))
 
 
     #Simple Moving Average (SMA)
     if bloodflow_checkmarks == ["SMA"]:
             bf["Blood Flow (ml/s) - SMA"] = ut.calculate_SMA(bf["Blood Flow (ml/s)"],4) 
-            fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - SMA"],mode='lines', marker_color = 'darkviolet', name= 'SMA'))
+            fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - SMA"],mode='lines', marker_color = 'fuchsia', name= 'SMA'))
 
    
 
