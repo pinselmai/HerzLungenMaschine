@@ -140,7 +140,7 @@ def update_figure(value, algorithm_checkmarks):
 #https://plotly.com/python/axes/
 
     #fig0
-    fig0.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'],font_color = colors['text'], modebar_color = colors['red'])
+    fig0.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'],font_color = colors['text'], modebar_color ='red')
     fig0.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black', griddash='dash', minor_griddash="dot")
     fig0.update_yaxes(showline=True, linewidth=2, linecolor='black',gridcolor='black', griddash='dash', minor_griddash="dot")
 
