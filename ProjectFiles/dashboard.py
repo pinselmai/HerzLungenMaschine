@@ -16,7 +16,8 @@ import re
 
 app = Dash(__name__)
 
-colors = { 'background': 'lightgray' , 'text': 'white' }
+#https://dash.plotly.com/layout
+colors = { 'background': 'linen' , 'text': 'black' }
 
 
 #import and clean data (importing csv into pandas)
@@ -135,7 +136,9 @@ def update_figure(value, algorithm_checkmarks):
     fig2 = px.line(ts, x="Time (s)", y = data_names[2])
 
     fig0.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'], font_color = colors['text'])
-     
+    fig1.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'], font_color = colors['text'])
+    fig2.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'], font_color = colors['text'])
+
     ### Aufgabe 2: Min / Max ###
 
     #function to calculate minimum and maximum
@@ -175,6 +178,7 @@ def bloodflow_figure(value, bloodflow_checkmarks):
     print(bloodflow_checkmarks)
     bf = list_of_subjects[int(value)-1].subject_data
     fig3 = px.line(bf, x="Time (s)", y="Blood Flow (ml/s)")
+    fig3.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'], font_color = colors['text'])
 
     #Cumulative Moving Average (CMA)
     if bloodflow_checkmarks == ["CMA"]:
