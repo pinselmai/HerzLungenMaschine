@@ -200,6 +200,13 @@ def bloodflow_figure(value, bloodflow_checkmarks):
     fig3.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black', griddash='dash', minor_griddash="dot")
     fig3.update_yaxes(showline=True, linewidth=2, linecolor='black',gridcolor='black', griddash='dash', minor_griddash="dot")
 
+    #Mittelwert: 3.1
+
+    avg = bf.mean() #Mittelwert berechnen
+    x = [0, 480] #Grenzen für x-Werte
+    y = avg.loc['Blood Flow (ml/s)']
+    fig3.add_trace(go.Scatter(x = x , y = [y, y], mode = 'lines', name = 'Mittelwert', line_color = 'lime'))
+
     #Cumulative Moving Average (CMA)
     if bloodflow_checkmarks is not None: 
 
@@ -216,15 +223,10 @@ def bloodflow_figure(value, bloodflow_checkmarks):
 
 
     #Blood Flow Alarm: Aufgabe 3
-    #Mittelwert: 3.1
-
-            avg = bf.mean() #Mittelwert berechnen
-            x = [0, 480] #Grenzen für x-Werte
-            y = avg.loc['Blood Flow (ml/s)']
-            fig3.add_trace(go.Scatter(x = x , y = [y, y], mode = 'lines', name = 'Mittelwert', line_color = 'lime'))
+        if bloodflow_checkmarks == ["Show Limits"]:
 
     #Intervalle um Mittelwert: 3.2
-        if bloodflow_checkmarks == ["Show Limits"]:
+
     #Obere Grenze
             y_oben = avg.loc['Blood Flow (ml/s)']*1.15 #115% vom Mittelwert
             fig3.add_trace(go.Scatter(x = x, y = [y_oben,y_oben],mode = 'lines', line_color = 'red', name = 'Obere Grenze'))
