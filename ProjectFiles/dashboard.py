@@ -138,8 +138,7 @@ def update_figure(value, algorithm_checkmarks):
     fig2 = px.line(ts, x="Time (s)", y = data_names[2])
 
     fig0.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'],
-                       font_color = colors['text'], gridcolor = colors ['text'], linecolor = colors ['text'])
-
+                       font_color = colors['text'])
     fig1.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'], font_color = colors['text'])
     fig2.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'], font_color = colors['text'])
 
