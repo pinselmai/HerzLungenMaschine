@@ -56,17 +56,6 @@ fig1 = px.line(df, x="Time (s)", y = "Blood Flow (ml/s)")
 fig2 = px.line(df, x="Time (s)", y = "Temp (C)")
 fig3 = px.line(df, x="Time (s)", y = "Blood Flow (ml/s)")
 
-def generate_table(dataframe, max_rows=10):
-    return html.Table([
-        html.Thead(
-            html.Tr([html.Th(col) for col in dataframe.columns])
-        ),
-        html.Tbody([
-            html.Tr([
-                html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
-            ]) for i in range(min(len(dataframe), max_rows))
-        ])
-    ])
 
 #layout
 
@@ -128,8 +117,6 @@ app.layout = html.Div(style={'backgroundColor': colors ['background']}, children
     )
     
 ])
-
-html.Div(children= [html.H4(children=''), generate_table(df)])
 
 
 ### Callback Functions ###
