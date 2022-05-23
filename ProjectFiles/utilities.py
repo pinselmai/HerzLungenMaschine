@@ -51,4 +51,4 @@ def calculate_SMA(df,n):
     pass
 
 #Augabe 4.2
-#Je höher man das n wählt, desto stärker werden die Extremwerte/Ausreißer geglättet
+#Je höher man das n wählt, desto stärker werden die Extrema/Ausreißer geglättet
