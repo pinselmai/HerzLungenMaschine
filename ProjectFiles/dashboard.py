@@ -61,7 +61,7 @@ fig3 = px.line(df, x="Time (s)", y = "Blood Flow (ml/s)")
 
 #https://dash.plotly.com/layout
 
-colors = { 'background': 'linen' , 'text': 'black' , 'buttons': 'red'}
+colors = { 'background': 'linen' , 'text': 'black' }
 
 #https://dash.plotly.com/dash-core-components
 
@@ -138,7 +138,7 @@ def update_figure(value, algorithm_checkmarks):
     fig2 = px.line(ts, x="Time (s)", y = data_names[2])
 
     #fig0
-    fig0.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'],font_color = colors['text'], modebar_color=['buttons'])
+    fig0.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'],font_color = colors['text'])
     fig0.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black', griddash='dash', minor_griddash="dot")
     fig0.update_yaxes(showline=True, linewidth=2, linecolor='black',gridcolor='black', griddash='dash', minor_griddash="dot")
 
