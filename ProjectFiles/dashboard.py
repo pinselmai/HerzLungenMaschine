@@ -65,7 +65,7 @@ colors = { 'background': 'linen' , 'text': 'black' }
 
 #https://dash.plotly.com/dash-core-components
 
-app.layout = html.Div(style={'backgroundColor': colors ['black']}, children=[
+app.layout = html.Div(style={'backgroundColor': colors ['text']}, children=[
     html.H1(children='Cardiopulmonary Bypass Dashboard', style={'text-align' : 'center' }),
 
     html.Div(children='''
