@@ -130,6 +130,8 @@ def update_figure(value, algorithm_checkmarks):
     fig1 = px.line(ts, x="Time (s)", y = data_names[1])
     # Blood Temperature
     fig2 = px.line(ts, x="Time (s)", y = data_names[2])
+
+    fig0.update_layout(plot_bgcolor=colors['background'],paper_bgcolor=colors['background'],font_color=colors['text'])
     
     ### Aufgabe 2: Min / Max ###
 
