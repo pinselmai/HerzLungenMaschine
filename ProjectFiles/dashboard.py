@@ -189,7 +189,7 @@ def bloodflow_figure(value, bloodflow_checkmarks):
     avg = bf.mean() #Mittelwert berechnen
     x = [0, 480] #Grenzen für x-Werte
     y = [avg.loc['Blood Flow (ml/s)']]
-    fig3.add_trace(go.Scatter(x = x , y = [y, y], mode = 'lines', name = 'Mittelwert'), line_color = 'seagreen')
+    fig3.add_trace(go.Scatter(x = x , y = [y, y], mode = 'lines', name = 'Mittelwert', line_color = 'seagreen'))
 
     #Intervalle um Mittelwert: 3.2
 
