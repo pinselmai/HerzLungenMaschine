@@ -79,7 +79,6 @@ colors = { 'background': 'gainsboro' , 'text': 'black' }
 
 app.layout = html.Div(style={'backgroundColor': colors ['background']}, children=[
     html.H1(children='Cardiopulmonary Bypass Dashboard', style={'text-align' : 'center' }),
-
     html.Div(children='''
         Hier könnten Informationen zum Patienten stehen....
     '''),
@@ -100,6 +99,8 @@ app.layout = html.Div(style={'backgroundColor': colors ['background']}, children
     html.Div(id='dd-output-container')
     ],
         style={"width": "15%"}
+
+
     ),
 
     dcc.Graph(
@@ -125,13 +126,12 @@ app.layout = html.Div(style={'backgroundColor': colors ['background']}, children
         id='dash-graph3',
         figure=fig3
     )
-
     
 ])
 
-app.layout = html.Div([html.H4(children=''),
-    generate_table(df)
-])
+html.Div(children= [html.H4(children=''), generate_table(df)])
+
+
 ### Callback Functions ###
 ## Graph Update Callback
 
