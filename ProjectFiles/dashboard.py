@@ -201,18 +201,20 @@ def bloodflow_figure(value, bloodflow_checkmarks):
     fig3.update_yaxes(showline=True, linewidth=2, linecolor='black',gridcolor='black', griddash='dash', minor_griddash="dot")
 
     #Cumulative Moving Average (CMA)
-    if bloodflow_checkmarks == ["CMA"]:
+    if bloodflow_checkmarks is not None: 
+
+        if bloodflow_checkmarks == ["CMA"]:
             bf["Blood Flow (ml/s) - CMA"] = ut.calculate_CMA(bf["Blood Flow (ml/s)"],4) 
             fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - CMA"],mode='lines', marker_color = 'yellow', name= 'CMA'))
 
 
     #Simple Moving Average (SMA)
-    if bloodflow_checkmarks == ["SMA"]:
+        if bloodflow_checkmarks == ["SMA"]:
             bf["Blood Flow (ml/s) - SMA"] = ut.calculate_SMA(bf["Blood Flow (ml/s)"],4) 
             fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - SMA"],mode='lines', marker_color = 'fuchsia', name= 'SMA'))
 
 
-    if 'Show Limits' in bloodflow_checkmarks:
+        if bloodflow_checkmarks == ["Show Limits "]:
 
     #Blood Flow Alarm: Aufgabe 3
     #Mittelwert: 3.1
