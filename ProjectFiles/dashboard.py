@@ -65,6 +65,7 @@ colors = { 'background': 'gainsboro' , 'text': 'black' }
 
 #https://dash.plotly.com/dash-core-components
 
+
 app.layout = html.Div(style={'backgroundColor': colors ['background']}, children=[
     html.H1(children='Cardiopulmonary Bypass Dashboard', style={'text-align' : 'center' }),
 
@@ -210,26 +211,26 @@ def bloodflow_figure(value, bloodflow_checkmarks):
             bf["Blood Flow (ml/s) - SMA"] = ut.calculate_SMA(bf["Blood Flow (ml/s)"],4) 
             fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - SMA"],mode='lines', marker_color = 'fuchsia', name= 'SMA'))
 
-   
+
+    if 'Show Limits' in bloodflow_checkmarks:
 
     #Blood Flow Alarm: Aufgabe 3
-
     #Mittelwert: 3.1
 
-    avg = bf.mean() #Mittelwert berechnen
-    x = [0, 480] #Grenzen für x-Werte
-    y = avg.loc['Blood Flow (ml/s)']
-    fig3.add_trace(go.Scatter(x = x , y = [y, y], mode = 'lines', name = 'Mittelwert', line_color = 'lime'))
+            avg = bf.mean() #Mittelwert berechnen
+            x = [0, 480] #Grenzen für x-Werte
+            y = avg.loc['Blood Flow (ml/s)']
+            fig3.add_trace(go.Scatter(x = x , y = [y, y], mode = 'lines', name = 'Mittelwert', line_color = 'lime'))
 
     #Intervalle um Mittelwert: 3.2
 
     #Obere Grenze
-    y_oben = avg.loc['Blood Flow (ml/s)']*1.15 #115% vom Mittelwert
-    fig3.add_trace(go.Scatter(x = x, y = [y_oben,y_oben],mode = 'lines', line_color = 'red', name = 'Obere Grenze'))
+            y_oben = avg.loc['Blood Flow (ml/s)']*1.15 #115% vom Mittelwert
+            fig3.add_trace(go.Scatter(x = x, y = [y_oben,y_oben],mode = 'lines', line_color = 'red', name = 'Obere Grenze'))
 
     #Untere Grenze
-    y_unten = avg.loc['Blood Flow (ml/s)']*0.85 #85% vom Mittelwert
-    fig3.add_trace(go.Scatter(x = x, y = [y_unten,y_unten],mode = 'lines', line_color = 'red', name = 'Untere Grenze'))
+            y_unten = avg.loc['Blood Flow (ml/s)']*0.85 #85% vom Mittelwert
+            fig3.add_trace(go.Scatter(x = x, y = [y_unten,y_unten],mode = 'lines', line_color = 'red', name = 'Untere Grenze'))
    
 
     #3.3
