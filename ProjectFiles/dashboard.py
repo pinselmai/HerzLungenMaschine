@@ -139,12 +139,12 @@ def update_figure(value, algorithm_checkmarks):
 
     #fig0
     fig0.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'],font_color = colors['text'])
-    fig0.update_xaxes(showline=True, linewidth=2, linecolor='black')
-    fig0.update_yaxes(showline=True, linewidth=2, linecolor='black')
+    fig0.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black', griddash='dash', minor_griddash="dot")
+    fig0.update_yaxes(showline=True, linewidth=2, linecolor='black',gridcolor='black', griddash='dash', minor_griddash="dot")
 
     #fig1
     fig1.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'], font_color = colors['text'])
-    
+
     fig2.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'], font_color = colors['text'])
 
     ### Aufgabe 2: Min / Max ###
