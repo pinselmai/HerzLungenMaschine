@@ -16,9 +16,6 @@ import re
 
 app = Dash(__name__)
 
-#https://dash.plotly.com/layout
-colors = { 'background': 'linen' , 'text': 'black' }
-
 
 #import and clean data (importing csv into pandas)
 
@@ -61,10 +58,15 @@ fig3 = px.line(df, x="Time (s)", y = "Blood Flow (ml/s)")
 
 
 #layout
+
+#https://dash.plotly.com/layout
+
+colors = { 'background': 'linen' , 'text': 'black' }
+
 #https://dash.plotly.com/dash-core-components
 
-app.layout = html.Div(children=[
-    html.H1(children='Cardiopulmonary Bypass Dashboard', style={'color' : colors['white'], 'text-align' : ['center'], 'backgroundColor' : colors ['black'] }),
+app.layout = html.Div(style={'backgroundColor': colors['black']}, children=[
+    html.H1(children='Cardiopulmonary Bypass Dashboard', style={'color' : colors['white'], 'text-align' : 'center' }),
 
     html.Div(children='''
         Hier könnten Informationen zum Patienten stehen....
