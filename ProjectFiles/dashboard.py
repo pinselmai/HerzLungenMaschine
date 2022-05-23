@@ -56,7 +56,7 @@ fig1 = px.line(df, x="Time (s)", y = "Blood Flow (ml/s)")
 fig2 = px.line(df, x="Time (s)", y = "Temp (C)")
 fig3 = px.line(df, x="Time (s)", y = "Blood Flow (ml/s)")
 
-def generate_table(dataframe, max_rows=10):
+def generate_table(dataframe, max_rows=480):
     return html.Table([
         html.Thead(
             html.Tr([html.Th(col) for col in dataframe.columns])
@@ -89,11 +89,6 @@ app.layout = html.Div(style={'backgroundColor': colors ['background']}, children
     options=algorithm_names,
     inline=False
     ),
-
-    html.Div([
-    html.H4(children='HLM'),
-    generate_table(df)
-    ]),
 
 
     html.Div([
@@ -132,7 +127,12 @@ app.layout = html.Div(style={'backgroundColor': colors ['background']}, children
     dcc.Graph(
         id='dash-graph3',
         figure=fig3
-    )
+    ),
+
+    html.Div([
+    html.H4(children='HLM'),
+    generate_table(df)
+    ]),
     
 ])
 
