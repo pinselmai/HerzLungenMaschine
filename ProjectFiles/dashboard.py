@@ -64,7 +64,7 @@ fig3 = px.line(df, x="Time (s)", y = "Blood Flow (ml/s)")
 #https://dash.plotly.com/dash-core-components
 
 app.layout = html.Div(children=[
-    html.H1(children='Cardiopulmonary Bypass Dashboard', style={ 'center', 'backgroundColor' : colors ['black'] }),
+    html.H1(children='Cardiopulmonary Bypass Dashboard', style={'color' : colors['white'], 'text-align' : ['center'], 'backgroundColor' : colors ['black'] }),
 
     html.Div(children='''
         Hier könnten Informationen zum Patienten stehen....
