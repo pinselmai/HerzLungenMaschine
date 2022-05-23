@@ -90,6 +90,12 @@ app.layout = html.Div(style={'backgroundColor': colors ['background']}, children
     inline=False
     ),
 
+    html.Div(
+    html.H4(children='HLM'),
+    generate_table(df)
+    ),
+
+
     html.Div([
         dcc.Dropdown(options = subj_numbers,
                      placeholder='Select a subject',
@@ -129,10 +135,7 @@ app.layout = html.Div(style={'backgroundColor': colors ['background']}, children
     )
     
 ])
-app.layout = html.Div([
-    html.H4(children='US Agriculture Exports (2011)'),
-    generate_table(df)
-])
+
 
 
 ### Callback Functions ###
