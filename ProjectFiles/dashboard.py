@@ -141,7 +141,7 @@ def update_figure(value, algorithm_checkmarks):
 
     if algorithm_checkmarks is not None:
 
-         if 'max' in algorithm_checkmarks:
+        if 'max' in algorithm_checkmarks:
 
             fig0.add_trace(go.Scatter(x= [grp.loc['idxmax', data_names[0]]], y= [grp.loc['max', data_names[0]]], mode='markers', name='maximum', marker_color= 'aqua'))
             fig1.add_trace(go.Scatter(x= [grp.loc['idxmax', data_names[1]]], y= [grp.loc['max', data_names[1]]], mode='markers', name='maximum', marker_color= 'aqua'))
