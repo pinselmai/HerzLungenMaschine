@@ -5,7 +5,8 @@ import pandas as pd
 from datetime import datetime
 import numpy as np
 import re
-import platform
+from sys import platform
+
 # Classes 
 
 class Subject():
