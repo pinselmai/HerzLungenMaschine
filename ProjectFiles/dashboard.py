@@ -151,7 +151,7 @@ def update_figure(value, algorithm_checkmarks):
 
             fig0.add_trace(go.Scatter(x=[grp.loc['idxmin', data_names[0]]], y=[grp.loc['min', data_names[0]]], mode ='markers', name='mininum', marker_color='gold'))
             fig1.add_trace(go.Scatter(x=[grp.loc['idxmin', data_names[1]]], y=[grp.loc['min', data_names[1]]], mode ='markers', name='mininum', marker_color='gold'))
-            fig3.add_trace(go.Scatter(x=[grp.loc['idxmin', data_names[2]]], y=[grp.loc['min', data_names[2]]], mode ='markers', name='Mininum', marker_color='gold'))
+            fig2.add_trace(go.Scatter(x=[grp.loc['idxmin', data_names[2]]], y=[grp.loc['min', data_names[2]]], mode ='markers', name='Mininum', marker_color='gold'))
 
     return fig0, fig1, fig2 
 
