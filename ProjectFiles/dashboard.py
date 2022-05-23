@@ -146,13 +146,11 @@ def update_figure(value, algorithm_checkmarks):
 
     #fig1
     fig1.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'], font_color = colors['text'], modebar_color ='red')
-    fig0.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black', griddash='dash', minor_griddash="dot"))
     fig1.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black', griddash='dash', minor_griddash="dot")
     fig1.update_yaxes(showline=True, linewidth=2, linecolor='black',gridcolor='black', griddash='dash', minor_griddash="dot")
 
     #fig2
     fig2.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'], font_color = colors['text'], modebar_color ='red')
-    fig0.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black', griddash='dash', minor_griddash="dot"))
     fig2.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black', griddash='dash', minor_griddash="dot")
     fig2.update_yaxes(showline=True, linewidth=2, linecolor='black',gridcolor='black', griddash='dash', minor_griddash="dot")
 
@@ -198,7 +196,6 @@ def bloodflow_figure(value, bloodflow_checkmarks):
     #fig3 
     fig3 = px.line(bf, x="Time (s)", y="Blood Flow (ml/s)")
     fig3.update_layout(plot_bgcolor = colors['background'], paper_bgcolor = colors['background'], font_color = colors['text'], modebar_color ='red')
-    fig0.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black', griddash='dash', minor_griddash="dot"))
     fig3.update_xaxes(showline=True, linewidth=2, linecolor='black', gridcolor='black', griddash='dash', minor_griddash="dot")
     fig3.update_yaxes(showline=True, linewidth=2, linecolor='black',gridcolor='black', griddash='dash', minor_griddash="dot")
 
