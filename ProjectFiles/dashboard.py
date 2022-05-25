@@ -230,7 +230,6 @@ def bloodflow_figure(value, bloodflow_checkmarks):
             fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - SMA"],mode='lines', marker_color = 'fuchsia', name= 'SMA'))
 
 
-
     #Blood Flow Alarm: Aufgabe 3
         if bloodflow_checkmarks == ["Show Limits"]:
 
