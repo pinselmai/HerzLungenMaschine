@@ -116,7 +116,8 @@ app.layout = html.Div(style={'backgroundColor': colors ['background']}, children
     dcc.Graph(
         id='dash-graph3',
         figure=fig3
-    )
+    ),
+    dcc.Tab
     
 ])
 
@@ -218,20 +219,20 @@ def bloodflow_figure(value, bloodflow_checkmarks):
     #Cumulative Moving Average (CMA)
     if bloodflow_checkmarks is not None: 
 
-        if bloodflow_checkmarks == ["CMA"]:
+        if "CMA" in bloodflow_checkmarks:
             bf["Blood Flow (ml/s) - CMA"] = ut.calculate_CMA(bf["Blood Flow (ml/s)"],4) 
             fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - CMA"],mode='lines', marker_color = 'yellow', name= 'CMA'))
 
 
     #Simple Moving Average (SMA)
-        if bloodflow_checkmarks == ["SMA"]:
+        if "SMA" in bloodflow_checkmarks:
             bf["Blood Flow (ml/s) - SMA"] = ut.calculate_SMA(bf["Blood Flow (ml/s)"],4) 
             fig3.add_trace(go.Scatter(x=bf["Time (s)"],y=bf["Blood Flow (ml/s) - SMA"],mode='lines', marker_color = 'fuchsia', name= 'SMA'))
 
 
 
     #Blood Flow Alarm: Aufgabe 3
-        if bloodflow_checkmarks == ["Show Limits"]:
+        if "Show Limits" in bloodflow_checkmarks:
 
     #Intervalle um Mittelwert: 3.2
 
